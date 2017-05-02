@@ -1,0 +1,6 @@
+{
+	"name": "jangrai-chat",
+	"version": "0.0.0",
+	"description": "this is realtime chat with websocket",
+	"license": "UNLICENSED"
+}

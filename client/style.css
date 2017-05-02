@@ -1,0 +1,116 @@
+body {margin:0;background-color:#eee;display:flex;align-items:center;justify-content:center;height:100vh;}
+
+.jr-chatroom {
+	min-width: 300px;
+	width: 520px;
+	position: relative;
+	background-color: #fff;
+	font: 16px/1.25 sans-serif;
+	color: #444;
+}
+
+.jr-chatroom > .tophead {
+	line-height: 48px;
+	text-align: center;
+	background-color: #34495e;
+	color: #eee;
+}
+
+.jr-chatroom > .chatzone .message {
+	height: 342px;
+	padding: 0 10px;
+	margin-bottom: 48px;
+	box-sizing: border-box;
+	overflow-y: scroll;
+}
+
+.jr-chatroom > .chatzone .message .items {
+	margin: 8px 0;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.jr-chatroom > .chatzone .message .usr_name {
+	font-size: 10px;
+	color: #aaa;
+}
+
+.jr-chatroom > .chatzone .message .usr_message {
+	background-color: #ecf0f1;
+	max-width: calc(100% * .8);
+	margin: 4px 0 0 10px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	padding: 5px 7px;
+	display: inline-table;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.jr-chatroom > .chatzone .message .items > .usr_message:nth-child(2) {
+	border-top-left-radius: 1px;
+	border-top-right-radius: 10px;
+}
+
+.jr-chatroom > .chatzone .message .items > .usr_message:last-child {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.jr-chatroom > .chatzone .message .client {
+	flex-wrap: wrap-reverse;
+}
+
+.jr-chatroom > .chatzone .message .client .usr_message {
+	background-color: #2980b9;
+	color: #fff;
+}
+
+.jr-chatroom > .chatzone .message .client > .usr_message:first-child {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;	
+}
+
+.jr-chatroom > .chatzone .message .client > .usr_message:nth-child(2) {
+	border-radius: 3px;
+}
+
+.jr-chatroom > .chatzone .message .client > .usr_message:last-child {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 1px;
+}
+
+.jr-chatroom > .chatzone .form_message {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 3;
+	width: 100%;
+	max-height: 48px;
+	background-color: #34495e;
+}
+
+.jr-chatroom > .chatzone .form_message > input {
+	outline-width: 0;
+	border-width: 0;
+	background-color: transparent;
+	font: inherit;
+	box-sizing: border-box;
+	color: #eee;
+	padding: 14px 8px;
+}
+
+.jr-chatroom > .chatzone .form_message > input[type="text"] {
+	width: calc(100% - 72.4376px);
+}
+
+.jr-chatroom > .chatzone .form_message > input[type="submit"] {
+	width: 68px;
+	cursor: pointer;
+	transition: background-color 200ms ease;
+}
+
+.jr-chatroom > .chatzone .form_message > input[type="submit"]:hover {
+	background-color: #2980b9;
+}
