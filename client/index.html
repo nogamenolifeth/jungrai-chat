@@ -2,25 +2,27 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
 		<title>JUNGRAI Chatroom</title>
 		<link rel="stylesheet" href="style.css">
 		<script src="script.js"></script>
 	</head>
 	<body>
-		<div class="jr-chatroom">
-			<div class="tophead">J U N G R A I</div>
-			<div class="chatzone">
-				<div class="message">
-					<div class="items">
-						<span class="usr_name">GUEST</span>
-						<span class="usr_message">asdasfdsfgsdfdsf</span>
-					</div>
+		<div class="jr-section">
+			<div class="jr-primary">
+				<div class="jr-chatname">JUNGRAI</div>
+				<div class="jr-chatlogs"></div>
+				<div class="jr-chatacts">
+					<div class="jr-msginput" contenteditable data-text="a message..."></div>
+					<div class="jr-msgphoto"></div>
+					<div class="jr-msgeands"></div>
+					<div class="jr-msgsents"></div>
 				</div>
-				<div class="form_message">
-					<input type="text" class="input-message" maxlength="1024" autofocus placeholder="a message...">
-					<input type="submit" class="send-message" value="Send">
-				</div>
+			</div>
+			<div class="jr-secondary">
+				<div class="jr-onlines"></div>
+				<div class="jr-profile"></div>
+				<div class="jr-menbers"></div>
 			</div>
 		</div>
 	</body>
