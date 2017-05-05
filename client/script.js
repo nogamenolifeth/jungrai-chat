@@ -1,47 +1,92 @@
-"use strict";
+'use strict';
 
-window.onload = () => {
-	let datacenter = {
-		message_box: () => document.querySelector('.jr-chatroom .message'),
-		message_prerender: (text) => {
-			let e = document.createElement("span")
-			e.classList.add("usr_message")
-			e.appendChild(document.createTextNode(text))
-			return e
-		}
-	}
+function createElement(node) {
+  if (typeof node === 'string') return document.createTextNode(node);
 
-	const form_message = {
-		input: () => document.querySelector('.jr-chatroom .input-message'),
-		send: () => document.querySelector('.jr-chatroom .send-message'),
-		runtime: () => {
-			let input = form_message['input']()
-			if (input.value === '') {
-				input.focus()
-				return
-			}
+  var $el = document.createElement(node.type);
+  if (Object.keys(node.props).length !== 0) Object.keys(node.props).map(function (name) {
+    var value = node.props[name];
 
-			let output_up = document.createElement('div')
-			output_up.className = 'items client'
-			output_up.appendChild(datacenter['message_prerender'](input.value))
+    if (name === 'className') {
+      $el.setAttribute('class', value);
+    } else if (typeof value === 'boolean') {
+      value === true ? ($el[name] = true, $el.setAttribute(name, value)) : $el[name] = false;
+    } else {
+      $el.setAttribute(name, value);
+    }
+  });
 
-			let cn = (datacenter['message_box']().children.length - 1)
-			let message = datacenter['message_box']().children[cn]
-			message.classList.contains('client')
-				? message.appendChild(datacenter['message_prerender'](input.value))
-				: datacenter['message_box']().appendChild(output_up)
+  Object.keys(node.children).map(function (key) {
+    return createElement(node.children[key]);
+  }).forEach($el.appendChild.bind($el));
 
-			message = datacenter['message_box']()
-			message.scrollTop = message.scrollHeight
-			input.value = ''
-			input.focus()
-		}
-	}
-
-	form_message['input']().addEventListener('keypress', (event) => {
-		event.keyCode === 13 && form_message['runtime']()
-	})
-
-	form_message['send']().addEventListener('click', form_message['runtime'])
+  return $el;
 }
 
+var cc = createElement({
+  'type': 'div',
+  'props': { 'className': 'jr-section' },
+  'children': [{
+    'type': 'div',
+    'props': { 'className': 'jr-primary' },
+    'children': []
+  },{
+    'type': 'div',
+    'props': { 'className': 'jr-secondary' },
+    'children': [{
+      'type': 'div',
+      'props': { 'className': 'jr-profile' },
+      'children': [{
+        'type': 'div',
+        'props': {},
+        'children': [{
+          'type': 'canvas',
+          'props': {'className': 'jr-profile_picture'},
+          'children': []
+        }]
+      },{
+        'type': 'div',
+        'props': {},
+        'children': [{
+          'type': 'div',
+          'props': {'className': 'jr-profile_name'},
+          'children': [{
+            'type': 'span',
+            'props': {'contenteditable': true, 'data-text': 'guest'},
+            'children': ['guest']
+          }]
+        },{
+          'type': 'div',
+          'props': {'className': 'jr-profile_active'},
+          'children': ['active on chat']
+        }]
+      }]
+    },{
+      'type': 'div',
+      'props': { 'className': 'jr-onlines' },
+      'children': [{
+        'type': 'div',
+        'props': {},
+        'children': [{
+          'type': 'b',
+          'props': {},
+          'children': ['0']
+        },'\u00A0MENBER']
+      },{
+        'type': 'div',
+        'props': {},
+        'children': [{
+          'type': 'b',
+          'props': {},
+          'children': ['0']
+        },'\u00A0ADMIN']
+      }]
+    },{
+      'type': 'div',
+      'props': { 'className': 'jr-menbers' },
+      'children': []
+    }]
+  }]
+});
+
+document.body.appendChild(cc)
