@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 		<title>JUNGRAI Chatroom</title>
 		<link rel="stylesheet" href="style.css">
 		<script src="script.js"></script>
@@ -10,18 +10,49 @@
 	<body>
 		<div class="jr-section">
 			<div class="jr-primary">
-				<div class="jr-chatname">JUNGRAI</div>
-				<div class="jr-chatlogs"></div>
+				<div class="jr-chatname">JUNGRAI CHAT</div>
+				<div class="jr-chatlogs">
+					<div>
+						<div class="jr-msgicon">
+							<img src="http://placehold.it/32x32" title="simple image placeholder">
+						</div>
+						<div class="jr-msglogs">
+							<div class="jr-msgname">guest</div>
+							<div class="jr-message">
+								<div>Hello</div>
+							</div>
+						</div>
+					</div>
+					<div class="jr-msgismine">
+						<div class="jr-msgicon">
+							<img src="http://placehold.it/32x32" title="simple image placeholder">
+						</div>
+						<div class="jr-msglogs">
+							<div class="jr-message">
+								<div>Hello</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="jr-chatacts">
-					<div class="jr-msginput" contenteditable data-text="a message..."></div>
-					<div class="jr-msgphoto"></div>
-					<div class="jr-msgeands"></div>
-					<div class="jr-msgsents"></div>
+					<div class="jr-msginput">
+						<span contenteditable data-text="a message..."></span>
+					</div>
+					<div class="jr-msgimage" title="Take Image">I</div>
+					<div class="jr-msgeands" title="Choose Emoji and Sticker">E&amp;S</div>
+					<div class="jr-msgsents" title="Send message">S</div>
 				</div>
 			</div>
 			<div class="jr-secondary">
-				<div class="jr-onlines"></div>
-				<div class="jr-profile"></div>
+				<div class="jr-profile">
+					<div>
+						<canvas class="jr-profile_picture"></canvas>
+					</div>
+					<div>
+						<div class="jr-profile_name"><div>
+						<div class="jr-profile_active"><div>
+					</div>
+				</div>
 				<div class="jr-menbers"></div>
 			</div>
 		</div>
